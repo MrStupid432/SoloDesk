@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="SoloDesk helps independent businesses organise jobs, tasks and income.">
+  <title>SoloDesk — Your work, organised</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="SoloDesk home"><span class="logo">S</span><span><strong>SoloDesk</strong><small>Your work, organised.</small></span></a>
+      <span class="local-tag">PERSONAL WORKSPACE</span>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div><p class="eyebrow">YOUR BUSINESS AT A GLANCE</p><h1>Good to see you.</h1><p class="muted">Keep your jobs, tasks and earnings in one place.</p></div>
+        <div class="today" id="today"></div>
+      </section>
+
+      <section class="stats" aria-label="Business summary">
+        <article class="stat"><span>Completed-job income</span><strong id="earned">$0.00</strong><small>All completed jobs</small></article>
+        <article class="stat"><span>Open jobs</span><strong id="openJobs">0</strong><small>Jobs not completed</small></article>
+        <article class="stat"><span>Tasks remaining</span><strong id="tasksLeft">0</strong><small>Things still to do</small></article>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><div><p class="eyebrow">WORK PIPELINE</p><h2>Jobs</h2></div><button class="button primary" id="showJobForm">＋ Add job</button></div>
+        <form id="jobForm" class="form hidden">
+          <div class="field"><label for="jobName">Customer or job name</label><input id="jobName" maxlength="70" placeholder="e.g. Alex — car wash" required></div>
+          <div class="two-col">
+            <div class="field"><label for="jobService">Service</label><input id="jobService" maxlength="60" placeholder="e.g. Exterior wash"></div>
+            <div class="field"><label for="jobPrice">Price (AUD)</label><input id="jobPrice" type="number" min="0" max="999999" step="0.01" placeholder="35.00" required></div>
+          </div>
+          <div class="field"><label for="jobDate">Due date (optional)</label><input id="jobDate" type="date"></div>
+          <div class="actions"><button type="button" class="button secondary" id="cancelJob">Cancel</button><button class="button primary" type="submit">Save job</button></div>
+        </form>
+        <div id="jobsList" class="list empty">No jobs yet. Add your first job to get started.</div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><div><p class="eyebrow">STAY ON TRACK</p><h2>Tasks</h2></div></div>
+        <form id="taskForm" class="task-form">
+          <label class="sr-only" for="taskText">New task</label><input id="taskText" maxlength="120" placeholder="What needs doing?" required>
+          <button class="button primary" type="submit">Add task</button>
+        </form>
+        <div id="tasksList" class="list empty">No tasks yet. Add a task to make a start.</div>
+      </section>
+      <p id="notice" class="notice" role="status" aria-live="polite"></p>
+      <p class="privacy-note">Prototype version: information is saved only in this browser on this device. Do not enter real customer contact details or sensitive information.</p>
+    </main>
+    <footer>SoloDesk · Early prototype · Built for independent work</footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
